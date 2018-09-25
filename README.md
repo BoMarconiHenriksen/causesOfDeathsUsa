@@ -2,7 +2,7 @@
 
 https://data.cdc.gov/api/views/bi63-dtpu/rows.csv?accessType=DOWNLOAD  
 
-[ ] Which state has the most deaths in the year of 2016? (All causes)  
+-[ ] Which state has the most deaths in the year of 2016? (All causes)  
 Which state has the least deaths in the year of 2016? (All causes)  
 Which state has had the smallest increase in deaths from 1999-2016? (All causes)  
 Which state has the most deaths caused by kidney disease in the year of 2005?  
