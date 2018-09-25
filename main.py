@@ -1,5 +1,6 @@
 import os
 import csv
+import numpy as np
 file_name = 'NCHS_-_Leading_Causes_of_Death__United_States.csv'
 # from downloader import download
 
@@ -17,4 +18,10 @@ with open(file_name) as fp:
         year, cause_name, state, deaths, age_adjusted, death_rate = line
         data = int(year), str(cause_name), str(state), str(
             deaths), int(age_adjusted), float(death_rate)
-        print(data)
+        # print(data)
+
+# Henter data ind med numpy
+# Virker ikke da kolonnerne har forskellige størrelser.
+""" data = np.genfromtxt(file_name, delimiter=',',
+                     dtype=np.uint16, skip_header=1, autostrip=True,) """
+print(data)
