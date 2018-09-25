@@ -2,7 +2,8 @@
 
 https://data.cdc.gov/api/views/bi63-dtpu/rows.csv?accessType=DOWNLOAD  
 
-- [ ] Downloader
+- [ ] Downloader. Vi downloader ikke filen pt da linket ikke virker i vores downloader.
+- [x] Lige nu har vi csv filen liggende i directoryet. 
 - [ ] Evt. filtrer datasettet.
 - [ ] Which state has the most deaths in the year of 2016? (All causes)  
 - [ ] Which state has the least deaths in the year of 2016? (All causes)  
