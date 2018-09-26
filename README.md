@@ -2,6 +2,8 @@
 
 https://data.cdc.gov/api/views/bi63-dtpu/rows.csv?accessType=DOWNLOAD  
 
+Link til dataset https://github.com/Zurina/Dataset  
+
 - [ ] Downloader. Vi downloader ikke filen pt da linket ikke virker i vores downloader.
 - [x] Lige nu har vi csv filen liggende i directoryet. 
 - [ ] Evt. filtrer datasettet.
