@@ -49,16 +49,16 @@ def task_4(file_name):
 def task_5(file_name):
     useable_data = testLoadData.load_death_data(file_name, {"Alzheimer's disease": 2}, {"United States": 3})
     gross_3darr = np.array(useable_data).reshape(51, 18, 6)
-    gross_3darr = np.flip(gross_3darr, axis = 1)                    # flip the years, earliest are now first
-    death_counts = gross_3darr[:,:,4].astype(int)                   # number of deaths - 2d array of ints
+    gross_3darr = np.flip(gross_3darr, axis = 1)                            # flip the years, earliest are now first
+    death_counts = gross_3darr[:,:,4].astype(int)                           # number of deaths - 2d array of ints
     death_diff_yearly = np.diff(death_counts, n=1, axis=1)          
-    death_diff_period = np.sum(death_diff_yearly, axis=1)           # total difference in deaths across the era for each state
+    death_diff_period = np.sum(death_diff_yearly, axis=1)                   # total difference in deaths across the era for each state
     state_index = np.argmax(death_diff_period)
 
-    diff_yearly_adjusted = np.append(death_diff_yearly[state_index], 0)
-    year_list = gross_3darr[:,:,0][state_index].astype(int)
-    state_name = gross_3darr[:,:,3][state_index][0]
-
+    diff_yearly_adjusted = np.insert(death_diff_yearly[state_index], 0, 0)  # add a zero at the beginning, so that the death difference 
+    year_list = gross_3darr[:,:,0][state_index].astype(int)                 #       is a comparrison to the previous year (the first year is the beginning, 
+    state_name = gross_3darr[:,:,3][state_index][0]                         #       and thus there is no difference from the precious year).
+    
     testLoadData.plot_increse(diff_yearly_adjusted, year_list, state_name)
     return ("Task 5: state: " + gross_3darr[state_index,0,3] + 
             " alzheimers death count increase: " + str(death_diff_period[state_index])) 
