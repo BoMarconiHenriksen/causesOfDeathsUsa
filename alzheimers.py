@@ -78,6 +78,7 @@ def plot_increse(dead, year):
     plt.ylabel("Frequency of deaths", fontsize=12)
     plt.xticks(xs, xlabels, rotation='vertical')
     plt.tight_layout(pad=2.0)
+    
     plt.bar(xs, ys)
     plt.savefig(plot_file)
     print("\nPlotting saved as '" + plot_file + "'.")
