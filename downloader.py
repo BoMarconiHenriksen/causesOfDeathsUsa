@@ -1,39 +1,30 @@
 """
-If no parameters are given try the config file.
-Usage:
-    python downloader.py [<url>] [<file_name>]
+This class is used to download a file when there is no file information in the url.
 """
 
 
-import os
-import sys
-from urllib import request as req
+from urllib.request import urlopen
+from urllib.request import urlretrieve
+import cgi
 
 
-def download(from_url, to_file):
-    if not os.path.isfile(to_file):
-        req.urlretrieve(from_url, to_file)
+"""
+This method is used when there is no file information in the url.
+The Content-Disposition header will contain the filename.
+"""
+def download(url):
+    # Open the url for reading as a request object.
+    remotefile = urlopen(url)
 
+    # Hvis requestet indeholder en fil, der skal downloades så kan Content-Disposition fortælle hvad filen hedder.
+    file_information = remotefile.info()['Content-Disposition']
+    # file_information indeholder nu: attachment; filename=NCHS_-_Leading_Causes_of_Death__United_States.csv
 
-if __name__ == '__main__':
-    try:
-        _, url, file_name = sys.argv
-    except:
-        try:
-            _, url = sys.argv
-            file_name = os.path.basename(url)
-        except:
-            try:
+    # Returner et dictioinary med filename og navnet på filen.
+    value, params = cgi.parse_header(file_information)
+    file_name = params["filename"]
+    print("Downloading file...")
 
-                # open file
-                cfg_file = 'list_of_files.txt'
-                with open(cfg_file) as fp:
-                    for line in fp:
-                        file_name = os.path.basename(line.rstrip())
-                        url = line
-                        download(url, file_name)
-                sys.exit(0)
-            except Exception as e:
-                print(__doc__)
-                sys.exit(1)
-    download(url, file_name)
+    # Henter filen og gemmer den lokalt.
+    urlretrieve(url, file_name)
+    return file_name
