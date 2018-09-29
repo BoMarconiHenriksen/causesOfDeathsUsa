@@ -38,6 +38,7 @@ Pennsylvania kidney death count: 3108
 ### Which state has had the biggest increase in the death of Alzheimers from 1999-2016? Plot the increase year for year using matplotlib.  
 California alzheimers death count increase: 11038  
 
+![alt text](https://github.com/BoMarconiHenriksen/causesOfDeathsUsa/blob/developer/alzheimers.png)  
 
 
 
