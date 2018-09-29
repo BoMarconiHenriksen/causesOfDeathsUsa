@@ -82,7 +82,7 @@ def task_4(file_name):
     # 2d array with deaths by kidney disease in the year 2005
     deaths_kidney_disease_2d_array = np.array(deaths_by_kidney_disease_2005).reshape(51, 6)
 
-    # number of deaths - 2d array of ints
+    # number of deaths - 1d array of ints
     death_counts = deaths_kidney_disease_2d_array[:, 4].astype(int)
     
     state_index = np.argmax(death_counts)
@@ -112,7 +112,7 @@ def task_5(file_name):
 
     # add a zero at the beginning, so that the death difference
     # is a comparrison to the previous year (the first year is the beginning,
-    # and thus there is no difference from the precious year).
+    # and thus there is no difference from the previous year).
     diff_yearly_adjusted = np.insert(death_diff_yearly[state_index], 0, 0)
     year_list = deaths_by_alzheimers_3d_array[:, :, 0][state_index].astype(int)
     state_name = deaths_by_alzheimers_3d_array[:, :, 3][state_index][0]
