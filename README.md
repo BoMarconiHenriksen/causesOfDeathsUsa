@@ -39,15 +39,3 @@ Pennsylvania kidney death count: 3108
 California alzheimers death count increase: 11038  
 
 ![alt text](https://github.com/BoMarconiHenriksen/causesOfDeathsUsa/blob/developer/alzheimers.png)  
-
-
-
-
-
-
-
-
-
-
-
-
